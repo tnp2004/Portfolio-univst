@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/output.css">
+    <title>Form</title>
+</head>
+<body class="bg-c1">
+        <form class="flex flex-col bg-c2 w-fit h-fit shadow-lg p-5 rounded mx-auto mt-52" action="post">
+            <h1 class="font-bold text-3xl text-center my-3">Login</h1>
+            <span class="w-full text-center" id="message"></span>
+            <label class="text-lg" for="username">Username</label>
+            <input class="mb-2 p-1 rounded-md" type="text" id="username" name="username" required>
+            <label class="text-lg" for="password">Password</label>
+            <input class="mb-2 p-1 rounded-md" type="password" id="password" name="password" required>
+            <button class="bg-c3 rounded p-1" type="submit">Submit</button>
+        </form>
+</body>
+</html>
+
+<script>
+    const form = document.querySelector('form');
+    const message = document.getElementById('message');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = form.username.value;
+        const password = form.password.value;
+        if (username === 'admin' && password === '123') {
+            message.textContent = 'Login successful';
+            message.style.color = 'green';
+        } else {
+            message.textContent = 'Invalid username or password';
+            message.style.color = 'red';
+        }
+    });
+</script>
